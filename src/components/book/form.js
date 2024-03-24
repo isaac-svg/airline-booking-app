@@ -33,7 +33,7 @@ export const BookForm = () => `
             <!-- 6 -->
             <div class="grid md:grid-cols-2 md:gap-6">
             <!-- date picker element -->
-              ${DateField()}      <!-- time -->
+              ${DateField("onewaydatepicker")}      <!-- time -->
               ${TimeField()}
             </div>
             <!-- return or one way-->

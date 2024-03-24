@@ -11,6 +11,8 @@ import { LoginPage } from "./src/pages/login.js";
 import { RegisterUser } from "./src/services/register.js";
 import { LoginUser } from "./src/services/login.js";
 import { BookFlight } from "./src/services/book.js";
+import { Table } from "./src/pages/table.js";
+import { getTableData } from "./src/services/gettabledata.js";
 
 const initApp = () => {
   initTWE({ Dropdown, Ripple, Carousel, Collapse });
@@ -24,22 +26,30 @@ const initApp = () => {
       break;
     case "/login":
       content = LoginPage();
-      LoginUser();
+      // LoginUser();
       break;
     case "/register":
       content = Register();
-      RegisterUser();
       break;
     case "/book":
       content = Book();
-      // DatePickerFunction();
-      BookFlight();
+      break;
+    case "/list":
+      content = Table();
       break;
     default:
       content = "404 Not Found";
   }
-  console.log(content);
+
   document.querySelector("#app").innerHTML = content;
+  try {
+    LoginUser();
+    RegisterUser();
+    BookFlight();
+    getTableData();
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 document.addEventListener("DOMContentLoaded", initApp);

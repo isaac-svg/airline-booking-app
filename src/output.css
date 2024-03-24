@@ -926,6 +926,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   margin-left: auto;
 }
 
+.mr-auto {
+  margin-right: auto;
+}
+
 .ms-2 {
   margin-inline-start: 0.5rem;
 }
@@ -948,10 +952,6 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .mt-\[8rem\] {
   margin-top: 8rem;
-}
-
-.mr-auto {
-  margin-right: auto;
 }
 
 .box-border {
@@ -1004,10 +1004,6 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .h-10 {
   height: 2.5rem;
-}
-
-.h-12 {
-  height: 3rem;
 }
 
 .h-24 {

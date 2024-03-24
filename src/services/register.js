@@ -29,16 +29,34 @@ export const RegisterUser = () => {
       alert("passwords do not march");
       return;
     }
-    const payload = { firstname, lastname, password, email };
+    const payload = {
+      firstName: firstname,
+      lastName: lastname,
+      password: password,
+      email,
+    };
 
-    // const res = await fetch("", {
-    //   method: "POST",
-    //   credentials: "include",
-    //   body: JSON.stringify({ ...payload }),
-    // });
-    // const data = await res.json();
+    console.log({
+      firstName: firstname,
+      lastName: lastname,
+      password: password,
+      email,
+    });
+    const res = await fetch("http://localhost:9000/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstname,
+        lastName: lastname,
+        password: password,
+        email,
+      }),
+    });
+    const data = await res.json();
 
-    console.log(payload);
+    console.log(data);
     // this data will be written to local storage
   });
 };
