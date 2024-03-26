@@ -24,7 +24,7 @@ export const BookFlight = () => {
     const sourceCountry = bookfromEl.value.trim();
     const destinationCountry = booktoEL.value.trim();
     const airline = airlineEL.value.trim();
-    const seatpreference = prefferedseatingEl.value.trim();
+    const seatPreference = prefferedseatingEl.value.trim();
     const departureDate = onewaydatepicker.value.trim();
     const returndate = returntripDatepicker.value.trim();
     const departureTime = timeEl.value.trim();
@@ -35,14 +35,15 @@ export const BookFlight = () => {
 
     console.log(prefersmultiway);
     const localPayload = localStorage.getItem("userPayload") ?? "{}";
+    console.log(departureDate);
     const userPayload = JSON.parse(localPayload);
     const payload = {
       originCountry: sourceCountry,
       destinationCountry,
       departureTime,
       airline,
-      seatpreference,
-      code: token,
+      seatPreference,
+      flightcode: token,
       departureDate,
       returntime: returnTime,
       returndate,

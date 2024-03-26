@@ -18,6 +18,7 @@ export const TableHead = () => {
                 <th scope="col" class="px-6 py-3">to</th>
                 <th scope="col" class="px-6 py-3">departure time</th>
                 <th scope="col" class="px-6 py-3">departure date</th>
+                <th scope="col" class="px-6 py-3">return date date</th><th scope="col" class="px-6 py-3">return time</th>
                 <th scope="col" class="px-6 py-3">price</th>
                 <th scope="col" class="px-6 py-3">Terminal</th>
                 <th scope="col" class="px-6 py-3">Gate</th>

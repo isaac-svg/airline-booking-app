@@ -13,8 +13,11 @@ import { LoginUser } from "./src/services/login.js";
 import { BookFlight } from "./src/services/book.js";
 import { Table } from "./src/pages/table.js";
 import { getTableData } from "./src/services/gettabledata.js";
+import { isAuthorized } from "./src/services/getprofile.js";
+import { displayLinkedList } from "./src/services/writetable.js";
+import { CancelFlight } from "./src/services/cancelflight.js";
 
-const initApp = () => {
+const initApp = async () => {
   initTWE({ Dropdown, Ripple, Carousel, Collapse });
   const path = window.location.pathname;
 
@@ -26,16 +29,24 @@ const initApp = () => {
       break;
     case "/login":
       content = LoginPage();
-      // LoginUser();
       break;
     case "/register":
       content = Register();
       break;
     case "/book":
-      content = Book();
+      const isValidity = await isAuthorized(
+        "http://localhost:9000/auth/profile"
+      );
+      if (isValidity) {
+        content = Book();
+        break;
+      }
+      content = LoginPage();
       break;
+
     case "/list":
       content = Table();
+
       break;
     default:
       content = "404 Not Found";
@@ -47,6 +58,8 @@ const initApp = () => {
     RegisterUser();
     BookFlight();
     getTableData();
+    displayLinkedList();
+    CancelFlight();
   } catch (error) {
     console.log(error);
   }

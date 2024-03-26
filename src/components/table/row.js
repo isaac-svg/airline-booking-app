@@ -1,21 +1,21 @@
-export const TableRow = (
+export const TableRow = ({
   username,
   flightcode,
-  from,
-  to,
+  originCountry,
+  destinationCountry,
   departureTime,
   departureDate,
   price,
   terminal,
   gate,
-  seat
-) => {
+  seatPreference,
+  returndate,
+  returnTime,
+}) => {
   //
   return `
 
-  <tr
-                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-              >
+ 
                 <td class="w-4 p-4">
                   <div class="flex items-center">
                     <input
@@ -25,30 +25,33 @@ export const TableRow = (
                     />
                   </div>
                 </td>
-                <th
+                <td
                   scope="row"
                   class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
                 ${username}
-                </th>
+                </td>
                 <td class="px-6 py-4">${flightcode}</td>
-                <td class="px-6 py-4">${from}</td>
-                <td class="px-6 py-4"> ${to} </td>
+                <td class="px-6 py-4">${originCountry}</td>
+                <td class="px-6 py-4"> ${destinationCountry} </td>
                 <td class="px-6 py-4"> ${departureTime}</td>
                 <td class="px-6 py-4"> ${departureDate} </td>
+                <td class="px-6 py-4"> ${returndate ?? "one way"} </td>
+                <td class="px-6 py-4"> ${returnTime ?? "one way"} </td>
+
                 <td class="px-6 py-4"> ${price} </td>
 
                 <td class="px-6 py-4"> ${terminal}</td>
                 <td class="px-6 py-4">${gate} </td>
-                <td class="px-6 py-4">${seat}</td>
+                <td class="px-6 py-4">${seatPreference}</td>
 
                 <td class="flex items-center px-6 py-4">
-                  <a
-                    href="#"
+                  <button
+                   
+                    id="cancelflightbtn"
                     class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
-                    >Remove</a
+                    >cancel</button
                   >
                 </td>
-              </tr>
     `;
 };
