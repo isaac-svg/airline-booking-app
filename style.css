@@ -24,3 +24,26 @@
   font-weight: 700;
   font-style: normal;
 }
+
+/* ticket */
+
+body {
+  padding: 2em;
+}
+
+.to,
+.from,
+.onwards,
+.return {
+  /* Just in case the names are too long to fit on a single line, break them with the modifier (from/to) */
+  display: inline-block;
+
+  font-weight: 100;
+}
+
+.airport-name,
+.date,
+.passenger-name {
+  font-variant: small-caps;
+  font-weight: bold;
+}

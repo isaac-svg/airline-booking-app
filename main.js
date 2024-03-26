@@ -16,6 +16,7 @@ import { getTableData } from "./src/services/gettabledata.js";
 import { isAuthorized } from "./src/services/getprofile.js";
 import { displayLinkedList } from "./src/services/writetable.js";
 import { CancelFlight } from "./src/services/cancelflight.js";
+import { Ticket } from "./src/pages/ticket.js";
 
 const initApp = async () => {
   initTWE({ Dropdown, Ripple, Carousel, Collapse });
@@ -25,7 +26,7 @@ const initApp = async () => {
 
   switch (path) {
     case "/":
-      content = Home();
+      content = Ticket();
       break;
     case "/login":
       content = LoginPage();
@@ -38,7 +39,7 @@ const initApp = async () => {
         "http://localhost:9000/auth/profile"
       );
       if (isValidity) {
-        content = Book();
+        // content = Book();
         break;
       }
       content = LoginPage();
