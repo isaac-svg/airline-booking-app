@@ -1,5 +1,5 @@
 export const isAuthorized = async (
-  endpoint = "https://airticket-booking-webserver.vercel.app//auth/profile"
+  endpoint = "https://airticket-booking-webserver-one.vercel.app//auth/profile"
 ) => {
   try {
     const response = await fetch(endpoint, {

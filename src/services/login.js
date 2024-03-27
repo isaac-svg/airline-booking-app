@@ -16,7 +16,7 @@ export const LoginUser = () => {
       const payload = { email, password };
       console.log(payload);
       const res = await fetch(
-        "https://airticket-booking-webserver.vercel.app/auth/login",
+        "https://airticket-booking-webserver-one.vercel.app/auth/login",
         {
           method: "POST",
           body: JSON.stringify({ email, password }),
