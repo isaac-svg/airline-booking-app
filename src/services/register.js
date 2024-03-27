@@ -43,7 +43,7 @@ export const RegisterUser = () => {
       email,
     });
     const res = await fetch(
-      "https://airticket-booking-webserver.vercel.app/auth/register",
+      "https://airline-booking-webserver.vercel.app/auth/register",
       {
         method: "POST",
         headers: {
@@ -69,7 +69,7 @@ export const RegisterUser = () => {
           toast.classList.add("hidden");
           toast.classList.remove("flex");
           window.location.href =
-            "https://airticket-booking-app-orcin.vercel.app/src/pages/login.html";
+            "https://airline-booking-app.vercel.app/src/pages/login.html";
         }, 1000))();
     }
     // this data will be written to local storage

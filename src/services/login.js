@@ -16,7 +16,7 @@ export const LoginUser = () => {
       const payload = { email, password };
       console.log(payload);
       const res = await fetch(
-        "https://airticket-booking-webserver.vercel.app/auth/login",
+        "https://airline-booking-webserver.vercel.app/auth/login",
         {
           method: "POST",
           body: JSON.stringify({ email, password }),
@@ -43,7 +43,7 @@ export const LoginUser = () => {
             toast.classList.add("hidden");
             toast.classList.remove("flex");
             window.location.href =
-              "https://airticket-booking-app-orcin.vercel.app/src/pages/book.html";
+              "https://airline-booking-app.vercel.app/src/pages/book.html";
           }, 1000))();
       } else {
         toastmessage.textContent = "incorrect credentials";

@@ -2,11 +2,11 @@ import { isAuthorized } from "./getprofile";
 import { displayLinkedList } from "./writetable";
 
 export const getTableData = async () => {
-  isAuthorized("https://airticket-booking-webserver.vercel.app/ticket/table")
+  isAuthorized("https://airline-booking-webserver.vercel.app/ticket/table")
     .then((data) => {
       if (!data) {
         window.location.href =
-          "https://airticket-booking-app-orcin.vercel.app/src/pages/login.html";
+          "https://airline-booking-app.vercel.app/src/pages/login.html";
         return;
       }
     })
@@ -15,7 +15,7 @@ export const getTableData = async () => {
     });
   try {
     const response = await fetch(
-      "https://airticket-booking-webserver.vercel.app/all",
+      "https://airline-booking-webserver.vercel.app/all",
       {
         credentials: "include",
       }

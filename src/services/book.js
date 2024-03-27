@@ -5,7 +5,7 @@ export const BookFlight = () => {
     .then((data) => {
       if (!data) {
         window.location.href =
-          "https://airticket-booking-app-orcin.vercel.app/src/pages/login.html";
+          "https://airline-booking-app.vercel.app/src/pages/login.html";
         return;
       }
     })
@@ -56,7 +56,7 @@ export const BookFlight = () => {
     console.log(payload);
     try {
       const res = await fetch(
-        "https://airticket-booking-webserver.vercel.app/ticket/book",
+        "https://airline-booking-webserver.vercel.app/ticket/book",
         {
           method: "POST",
           credentials: "include",
