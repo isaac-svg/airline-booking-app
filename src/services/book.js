@@ -56,7 +56,7 @@ export const BookFlight = () => {
     console.log(payload);
     try {
       const res = await fetch(
-        "https://airticket-booking-app-orcin.vercel.app/ticket/book",
+        "https://airticket-booking-webserver.vercel.app/ticket/book",
         {
           method: "POST",
           credentials: "include",

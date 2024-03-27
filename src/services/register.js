@@ -43,7 +43,7 @@ export const RegisterUser = () => {
       email,
     });
     const res = await fetch(
-      "https://airticket-booking-app-orcin.vercel.app/auth/register",
+      "https://airticket-booking-webserver.vercel.app/auth/register",
       {
         method: "POST",
         headers: {
