@@ -1,4 +1,17 @@
+import { isAuthorized } from "./getprofile";
+
 export const BookFlight = () => {
+  isAuthorized()
+    .then((data) => {
+      if (!data) {
+        window.location.href =
+          "https://airticket-booking-app-orcin.vercel.app/src/pages/book.html";
+        return;
+      }
+    })
+    .catch((e) => {
+      console.log(e.message);
+    });
   const form = document.querySelector("#bookform");
   const bookfromEl = document.querySelector("#bookfrom");
   const booktoEL = document.querySelector("#bookto");
