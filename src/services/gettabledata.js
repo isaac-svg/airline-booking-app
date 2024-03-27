@@ -3,7 +3,7 @@ import { displayLinkedList } from "./writetable";
 
 export const getTableData = async () => {
   isAuthorized(
-    "https://airticket-booking-webserver-one.vercel.app/ticket/table"
+    "https://airticket-booking-webserver-psl.vercel.app/ticket/table"
   )
     .then((data) => {
       if (!data) {
@@ -17,7 +17,7 @@ export const getTableData = async () => {
     });
   try {
     const response = await fetch(
-      "https://airticket-booking-webserver-one.vercel.app/all",
+      "https://airticket-booking-webserver-psl.vercel.app/all",
       {
         credentials: "include",
       }
