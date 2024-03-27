@@ -38,7 +38,7 @@ export const makeTicket = () => {
   cancel.addEventListener("click", async (e) => {
     try {
       const response = await fetch(
-        "https://airticket-booking-webserver-psl.vercel.app/ticket/delete",
+        "https://airticket-booking-webserver.vercel.app/ticket/delete",
         {
           credentials: "include",
           headers: {

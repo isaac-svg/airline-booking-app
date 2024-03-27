@@ -2,9 +2,7 @@ import { isAuthorized } from "./getprofile";
 import { displayLinkedList } from "./writetable";
 
 export const getTableData = async () => {
-  isAuthorized(
-    "https://airticket-booking-webserver-psl.vercel.app/ticket/table"
-  )
+  isAuthorized("https://airticket-booking-webserver.vercel.app/ticket/table")
     .then((data) => {
       if (!data) {
         window.location.href =
@@ -17,7 +15,7 @@ export const getTableData = async () => {
     });
   try {
     const response = await fetch(
-      "https://airticket-booking-webserver-psl.vercel.app/all",
+      "https://airticket-booking-webserver.vercel.app/all",
       {
         credentials: "include",
       }
