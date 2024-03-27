@@ -5,7 +5,7 @@ export const BookFlight = () => {
     .then((data) => {
       if (!data) {
         window.location.href =
-          "https://airticket-booking-app-orcin.vercel.app/src/pages/book.html";
+          "https://airticket-booking-app-orcin.vercel.app/src/pages/login.html";
         return;
       }
     })

@@ -18,6 +18,7 @@ export const isAuthorized = async () => {
     console.log(error);
     window.location.href =
       "https://airticket-booking-app-orcin.vercel.app/src/pages/book.html";
+    return;
   }
 };
 isAuthorized();
