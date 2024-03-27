@@ -6,4 +6,4 @@ async function authenticate() {
       "https://airticket-booking-app-orcin.vercel.app/src/pages/login.html";
   }
 }
-await authenticate();
+authenticate();
