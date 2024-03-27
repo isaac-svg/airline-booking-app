@@ -12,5 +12,5 @@ export const getTableData = async () => {
   }
 };
 
-await getTableData();
+getTableData();
 displayLinkedList();
