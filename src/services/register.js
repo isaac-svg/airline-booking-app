@@ -42,18 +42,21 @@ export const RegisterUser = () => {
       password: password,
       email,
     });
-    const res = await fetch("http://localhost:9000/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        firstName: firstname,
-        lastName: lastname,
-        password: password,
-        email,
-      }),
-    });
+    const res = await fetch(
+      "https://airticket-booking-app-orcin.vercel.app/auth/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: firstname,
+          lastName: lastname,
+          password: password,
+          email,
+        }),
+      }
+    );
     const data = await res.json();
 
     console.log(data);

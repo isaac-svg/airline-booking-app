@@ -1,7 +1,10 @@
 export const isAuthorized = async () => {
-  const response = await fetch("http://localhost:9000/auth/profile", {
-    credentials: "include",
-  });
+  const response = await fetch(
+    "https://airticket-booking-app-orcin.vercel.app/auth/profile",
+    {
+      credentials: "include",
+    }
+  );
   const data = await response.json();
 
   console.log(data, "data");

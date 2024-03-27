@@ -37,13 +37,16 @@ export const makeTicket = () => {
   });
   cancel.addEventListener("click", async (e) => {
     try {
-      const response = await fetch("http://localhost:9000/ticket/delete", {
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...ticket, ...userPayload }),
-      });
+      const response = await fetch(
+        "https://airticket-booking-app-orcin.vercel.app/ticket/delete",
+        {
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...ticket, ...userPayload }),
+        }
+      );
       const data = response.json();
       console.log(data);
     } catch (error) {}

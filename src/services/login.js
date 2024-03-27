@@ -14,14 +14,17 @@ export const LoginUser = () => {
     const password = passwordEl.value.trim();
     const payload = { email, password };
     console.log(payload);
-    const res = await fetch("http://localhost:9000/auth/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      "https://airticket-booking-app-orcin.vercel.app/auth/login",
+      {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data = await res.json();
     // console.log(data);
