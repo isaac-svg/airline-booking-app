@@ -18,52 +18,14 @@ import { displayLinkedList } from "./src/services/writetable.js";
 import { CancelFlight } from "./src/services/cancelflight.js";
 import { Ticket } from "./src/pages/ticket.js";
 
+initTWE({ Collapse });
 const initApp = async () => {
   initTWE({ Dropdown, Ripple, Carousel, Collapse });
   const path = window.location.pathname;
 
-  let content;
-
-  switch (path) {
-    case "/":
-      content = Ticket();
-      break;
-    case "/login":
-      content = LoginPage();
-      break;
-    case "/register":
-      content = Register();
-      break;
-    case "/book":
-      const isValidity = await isAuthorized(
-        "http://localhost:9000/auth/profile"
-      );
-      if (isValidity) {
-        // content = Book();
-        break;
-      }
-      content = LoginPage();
-      break;
-
-    case "/list":
-      content = Table();
-
-      break;
-    default:
-      content = "404 Not Found";
-  }
-
-  document.querySelector("#app").innerHTML = content;
-  try {
-    LoginUser();
-    RegisterUser();
-    BookFlight();
-    getTableData();
-    displayLinkedList();
-    CancelFlight();
-  } catch (error) {
-    console.log(error);
-  }
+  document.querySelector("#app").innerHTML = "lorem1-000";
+  const links = document.querySelectorAll("a");
+  // links.forEach(l=>)
 };
 
 document.addEventListener("DOMContentLoaded", initApp);

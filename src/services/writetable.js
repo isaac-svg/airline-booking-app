@@ -4,28 +4,23 @@ import { getTableData } from "./gettabledata";
 console.log(tableData, "tableDatatableDatatableData");
 function createNodeElement(node) {
   const nodeDiv = document.createElement("tr");
-  // "code:"""
-  nodeDiv.classList.add([
-    "bg-white",
-    "dark:bg-gray-800",
-    "border-b",
-    "dark:border-gray-700",
-    "hover:bg-gray-50",
-    "dark:hover:bg-gray-600",
-  ]);
+
   nodeDiv.innerHTML = node;
   return nodeDiv;
 }
 // code: "";
 export async function displayLinkedList() {
   const linkedListDiv = document.querySelector("tbody");
-  const data = await getTableData();
+  console.log(linkedListDiv, "linkedListDiv");
   linkedListDiv.innerHTML = "";
   tableData.addbulk(await getTableData());
   let current = tableData.head;
-  while (current !== null) {
+  let count = 0;
+  while (current.next !== null) {
+    console.log("count is: ", count++);
     linkedListDiv.appendChild(createNodeElement(TableRow({ ...current })));
 
+    console.log(current, "this is current: ", count);
     current = current.next;
   }
 }

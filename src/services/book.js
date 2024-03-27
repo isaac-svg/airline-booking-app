@@ -3,20 +3,17 @@ export const BookFlight = () => {
   const bookfromEl = document.querySelector("#bookfrom");
   const booktoEL = document.querySelector("#bookto");
   const airlineEL = document.querySelector("#airlines");
-  const prefferedseatingEl = document.querySelector("#prefferedseating");
+
   const onewaydatepicker = document.querySelector(
-    '[data-datepicker="onewaydatepicker"]'
+    '[data-datepicker="datepicker"]'
   );
-  const returntripDatepicker = document.querySelector(
-    '[data-datepicker="multiwaydatepicker"]'
-  );
+
   const timeEl = document.querySelector("#booktime");
-  const onewayPreffered = document.querySelector("#bordered-radio-1");
-  const multiwayPreffered = document.querySelector("#bordered-radio-2");
-  const returntime = document.querySelector("#returntime");
 
+  const flightplan = document.querySelector("#flightplan");
+  const sendmessage = document.querySelector("#sendmessage");
   const tokenfield = document.querySelector("#tokenfield");
-
+  console.log(flightplan, sendmessage);
   form?.addEventListener("submit", async (e) => {
     if (!e.isTrusted) return;
     e.preventDefault();
@@ -24,16 +21,10 @@ export const BookFlight = () => {
     const sourceCountry = bookfromEl.value.trim();
     const destinationCountry = booktoEL.value.trim();
     const airline = airlineEL.value.trim();
-    const seatPreference = prefferedseatingEl.value.trim();
     const departureDate = onewaydatepicker.value.trim();
-    const returndate = returntripDatepicker.value.trim();
     const departureTime = timeEl.value.trim();
-    const prefersoneway = onewayPreffered.value.trim();
-    const prefersmultiway = multiwayPreffered;
-    const returnTime = returntime.value.trim();
     const token = tokenfield.value.trim();
 
-    console.log(prefersmultiway);
     const localPayload = localStorage.getItem("userPayload") ?? "{}";
     console.log(departureDate);
     const userPayload = JSON.parse(localPayload);
@@ -42,13 +33,8 @@ export const BookFlight = () => {
       destinationCountry,
       departureTime,
       airline,
-      seatPreference,
       flightcode: token,
       departureDate,
-      returntime: returnTime,
-      returndate,
-      prefersoneway,
-      isAreturnTrip: prefersmultiway.checked,
       price: "120",
       userData: {
         ...userPayload,
@@ -68,3 +54,4 @@ export const BookFlight = () => {
     console.log(data);
   });
 };
+BookFlight();

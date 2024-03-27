@@ -9,15 +9,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <!-- flow bite -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script> -->
+
     <script src="https://unpkg.com/alpinejs" defer></script>
 
-    <!-- <script
-      type="text/javascript"
-      src="./node_modules/tw-elements/js/tw-elements.umd.min.js"
-    ></script> -->
-    <!-- tailwind compoments -->
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,63 +28,155 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
-    <!-- <script src="./src/services/gettabledata.js" defer></script> -->
+    <script type="module" src="../services/login.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <title>Login</title>
   </head>
   <body>
-    <section class="min-h-screen grid content-center">
-      <form class="max-w-sm mx-auto" id="loginform">
-        <div class="mb-5">
-          <label
-            for="loginemail"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Your email</label
-          >
-          <input
-            type="email"
-            id="loginemail"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="name@example.com"
-            required
-          />
-        </div>
-        <div class="mb-5">
-          <label
-            for="loginpassword"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Your password</label
-          >
-          <input
-            type="password"
-            id="loginpassword"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required
-          />
-        </div>
-        <div class="flex items-start mb-5">
-          <div class="flex items-center h-5">
-            <input
-              id="remember"
-              type="checkbox"
-              value=""
-              class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-            />
-          </div>
-          <label
-            for="remember"
-            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >Remember me</label
-          >
-        </div>
-        <button
-          type="submit"
-          id="loginbtn"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    <div
+      id="toast-success"
+      class="hidden items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 fixed top-5 right-5 transition-all duration-1000"
+      role="alert"
+    >
+      <div
+        class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200"
+      >
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
         >
-          Submit
-        </button>
-      </form>
-    </section>
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+          />
+        </svg>
+        <span class="sr-only">Check icon</span>
+      </div>
+      <div id="toast-message" class="ms-3 text-sm font-normal">
+        Login successful
+      </div>
+    </div>
+    <div
+      class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6"
+    >
+      <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <img
+          class="mx-auto h-10 w-auto"
+          src="https://www.svgrepo.com/show/301692/login.svg"
+          alt="Workflow"
+        />
+        <h2
+          class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900"
+        >
+          Sign in to your account
+        </h2>
+        <p class="mt-2 text-center text-sm leading-5 text-blue-500 max-w">
+          Or
+          <a
+            href="https://airticket-booking-app-orcin.vercel.app/src/pages/register.html"
+            class="font-medium text-blue-500 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+          >
+            create a new acccount
+          </a>
+        </p>
+      </div>
+
+      <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <form id="loginform">
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium leading-5 text-gray-700"
+                >Email address</label
+              >
+              <div class="mt-1 relative rounded-md shadow-sm">
+                <input
+                  id="loginemail"
+                  name="email"
+                  placeholder="user@example.com"
+                  type="email"
+                  required=""
+                  value=""
+                  class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                />
+                <div
+                  class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+                >
+                  <svg
+                    class="h-5 w-5 text-red-500"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <label
+                for="password"
+                class="block text-sm font-medium leading-5 text-gray-700"
+                >Password</label
+              >
+              <div class="mt-1 rounded-md shadow-sm">
+                <input
+                  id="loginpassword"
+                  name="password"
+                  type="password"
+                  required=""
+                  class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                />
+              </div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between">
+              <div class="flex items-center">
+                <input
+                  id="remember_me"
+                  name="remember"
+                  type="checkbox"
+                  value="1"
+                  class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                />
+                <label
+                  for="remember_me"
+                  class="ml-2 block text-sm leading-5 text-gray-900"
+                  >Remember me</label
+                >
+              </div>
+
+              <div class="text-sm leading-5">
+                <a
+                  href="#"
+                  class="font-medium text-blue-500 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+                >
+                  Forgot your password?
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <span class="block w-full rounded-md shadow-sm">
+                <button
+                  type="submit"
+                  id="loginbtn"
+                  class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+                >
+                  Sign in
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

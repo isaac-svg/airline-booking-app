@@ -8,50 +8,79 @@ export const TableRow = ({
   price,
   terminal,
   gate,
-  seatPreference,
-  returndate,
-  returnTime,
+  email,
+  status,
 }) => {
   //
+  console.log(
+    {
+      username,
+      flightcode,
+      originCountry,
+      destinationCountry,
+      departureTime,
+      departureDate,
+      price,
+      terminal,
+      gate,
+      email,
+      status,
+    },
+    "rowData"
+  );
+  // <tr>
   return `
 
  
-                <td class="w-4 p-4">
-                  <div class="flex items-center">
-                    <input
-                      id="checkbox-table-search-1"
-                      type="checkbox"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                  </div>
-                </td>
-                <td
-                  scope="row"
-                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                ${username}
-                </td>
-                <td class="px-6 py-4">${flightcode}</td>
-                <td class="px-6 py-4">${originCountry}</td>
-                <td class="px-6 py-4"> ${destinationCountry} </td>
-                <td class="px-6 py-4"> ${departureTime}</td>
-                <td class="px-6 py-4"> ${departureDate} </td>
-                <td class="px-6 py-4"> ${returndate ?? "one way"} </td>
-                <td class="px-6 py-4"> ${returnTime ?? "one way"} </td>
-
-                <td class="px-6 py-4"> ${price} </td>
-
-                <td class="px-6 py-4"> ${terminal}</td>
-                <td class="px-6 py-4">${gate} </td>
-                <td class="px-6 py-4">${seatPreference}</td>
-
-                <td class="flex items-center px-6 py-4">
-                  <button
-                   
-                    id="cancelflightbtn"
-                    class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
-                    >cancel</button
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <p
+                    class="flex justify-center items-center h-10 w-10 rounded-full bg-blue-700 text-white text-lg font-medium"
                   >
-                </td>
-    `;
+                    ${username?.[0]}
+                  </p>
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">
+                    ${username}
+                  </div>
+                  <div class="text-sm text-gray-500">
+                    ${email}
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-900">${originCountry}</div>
+              <!-- <div class="text-sm text-gray-500">${destinationCountry}</div> -->
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              ${destinationCountry}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              ${departureTime}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              ${departureDate}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span
+                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+              >
+                Active
+              </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              ${flightcode}
+            </td>
+
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              
+              <a href="#" id="cancelflightbtn" class="ml-2 text-red-600 hover:text-red-900"
+                >cancel</a
+              >
+            </td>
+            `;
+  // </tr>
 };

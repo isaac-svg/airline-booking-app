@@ -57,6 +57,19 @@ export const RegisterUser = () => {
     const data = await res.json();
 
     console.log(data);
+    if (data.others) {
+      const toast = document.querySelector("#toast-success");
+      toast.classList.remove("hidden");
+      toast.classList.add("flex");
+      await (async () =>
+        setTimeout(() => {
+          toast.classList.add("hidden");
+          toast.classList.remove("flex");
+          window.location.href =
+            "https://airticket-booking-app-orcin.vercel.app/src/pages/login.html";
+        }, 1000))();
+    }
     // this data will be written to local storage
   });
 };
+RegisterUser();

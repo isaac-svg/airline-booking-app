@@ -19,9 +19,11 @@ class Node {
     seatPreference,
     _id,
     returndate,
+    email,
   }) {
     this.username = username ?? "server did not bring it";
     this.flightcode = flightcode;
+    this.email = email;
     this.originCountry = originCountry;
     this.destinationCountry = destinationCountry;
     this.departureDate = departureDate;
@@ -84,6 +86,7 @@ export class LinkedList {
    */
   addbulk(rows = []) {
     // console.log(rows, "rows");
+    console.log("This is what is added in bulk", rows);
     for (const key of rows) {
       this.addsingle(key);
     }
