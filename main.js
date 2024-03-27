@@ -23,8 +23,8 @@ const initApp = async () => {
   initTWE({ Dropdown, Ripple, Carousel, Collapse });
   const path = window.location.pathname;
 
-  document.querySelector("#app").innerHTML = "lorem1-000";
-  const links = document.querySelectorAll("a");
+  // document.querySelector("#app").innerHTML = "lorem1-000";
+  // const links = document.querySelectorAll("a");
   // links.forEach(l=>)
 };
 
