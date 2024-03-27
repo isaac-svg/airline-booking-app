@@ -28,7 +28,7 @@ export const LoginUser = () => {
       );
 
       const data = await res.json();
-      // console.log(data);
+      console.log(data);
 
       const toast = document.querySelector("#toast-success");
       const toastmessage = document.querySelector("#toast-message");
@@ -37,11 +37,11 @@ export const LoginUser = () => {
         toastmessage.textContent = "Login successfull";
         toast.classList.remove("hidden");
         toast.classList.add("flex");
+        console.log(" login href has hit here");
         await (async () =>
           setTimeout(() => {
             toast.classList.add("hidden");
             toast.classList.remove("flex");
-            console.log(" login href has hit here");
             window.location.href =
               "https://airticket-booking-app-orcin.vercel.app/src/pages/book.html";
           }, 1000))();
