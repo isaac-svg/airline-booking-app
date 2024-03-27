@@ -41,6 +41,7 @@ export const LoginUser = () => {
           setTimeout(() => {
             toast.classList.add("hidden");
             toast.classList.remove("flex");
+            console.log(" login href has hit here");
             window.location.href =
               "https://airticket-booking-app-orcin.vercel.app/src/pages/book.html";
           }, 1000))();
