@@ -54,22 +54,26 @@ export const BookFlight = () => {
       },
     };
     console.log(payload);
-    const res = await fetch(
-      "https://airticket-booking-app-orcin.vercel.app/ticket/book",
-      {
-        method: "POST",
-        credentials: "include",
-        body: JSON.stringify({ ...payload }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    try {
+      const res = await fetch(
+        "https://airticket-booking-app-orcin.vercel.app/ticket/book",
+        {
+          method: "POST",
+          credentials: "include",
+          body: JSON.stringify({ ...payload }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-    const data = await res.json();
-    console.log(data);
-    if (data) {
-      localStorage.setItem("ticket", JSON.stringify(data));
+      const data = await res.json();
+      console.log(data);
+      if (data) {
+        localStorage.setItem("ticket", JSON.stringify(data));
+      }
+    } catch (error) {
+      console.log(error);
     }
   });
 };

@@ -1,11 +1,10 @@
-export const isAuthorized = async () => {
+export const isAuthorized = async (
+  endpoint = "https://airticket-booking-app-orcin.vercel.app/auth/profile"
+) => {
   try {
-    const response = await fetch(
-      "https://airticket-booking-app-orcin.vercel.app/auth/profile",
-      {
-        credentials: "include",
-      }
-    );
+    const response = await fetch(endpoint, {
+      credentials: "include",
+    });
     const data = await response.json();
     if (!data) {
       window.location.href =

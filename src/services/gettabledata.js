@@ -2,7 +2,7 @@ import { isAuthorized } from "./getprofile";
 import { displayLinkedList } from "./writetable";
 
 export const getTableData = async () => {
-  isAuthorized()
+  isAuthorized("https://airticket-booking-app-orcin.vercel.app/ticket/table")
     .then((data) => {
       if (!data) {
         window.location.href =
