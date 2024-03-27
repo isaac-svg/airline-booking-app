@@ -10,24 +10,11 @@ export const TableRow = ({
   gate,
   email,
   status,
+  isValid,
 }) => {
   //
-  console.log(
-    {
-      username,
-      flightcode,
-      originCountry,
-      destinationCountry,
-      departureTime,
-      departureDate,
-      price,
-      terminal,
-      gate,
-      email,
-      status,
-    },
-    "rowData"
-  );
+  let rowcount = 0;
+  console.log(rowcount++, "rowCount");
   // <tr>
   return `
 
@@ -65,11 +52,17 @@ export const TableRow = ({
               ${departureDate}
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
-              <span
-                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-              >
-                Active
-              </span>
+  
+            ${
+              isValid
+                ? `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Active
+                </span>`
+                : `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                  Inactive
+                </span>`
+            }
+              
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
               ${flightcode}

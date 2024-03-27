@@ -49,6 +49,7 @@ export class LinkedList {
   constructor() {
     this.head = null;
     this.rows = [];
+    this.count = 0;
   }
   /**
    *
@@ -57,15 +58,17 @@ export class LinkedList {
   addsingle(row) {
     let newNode = new Node(row);
     if (this.head === null) {
-      this.rows.push(newNode);
+      // this.rows.push(newNode);
       this.head = newNode;
+      this.count += 1;
       return;
     }
     let current = this.head;
     if (newNode.username <= current.username) {
       newNode.next = this.head;
       this.head = newNode;
-      this.rows.push(current);
+      this.count += 1;
+      // this.rows.push(current);
       return;
     }
 
@@ -74,39 +77,32 @@ export class LinkedList {
       console.log("add single");
     }
     if (current.next === null) {
+      this.count += 1;
       current.next = newNode;
     } else {
       newNode.next = current.next;
       current.next = newNode;
+      this.count += 1;
     }
-    this.rows.push(current);
+    // this.rows.push(current);
   }
+
   /**
    * @param {Node[]} rows
    */
-  addbulk(rows = []) {
-    // console.log(rows, "rows");
-    console.log("This is what is added in bulk", rows);
-    for (const key of rows) {
+  addbulk(data = []) {
+    this.head = null;
+    for (const key of data) {
       this.addsingle(key);
     }
+  }
 
-    // console.log(this.head, "this.head");
-  }
-  getrows() {
-    if (!this.head) return [];
-    let current = this.head;
-    while (current.next !== null) {
-      this.rows.push(current);
-      current = current.next;
-    }
-    return this.rows;
-  }
   delete(key) {
     if (!this.head) return;
     let current = this.head;
     if (current.username === key) {
       this.head = current.next;
+      this.count -= 1;
       return;
     }
     while (current.next !== null && current.username !== key) {
@@ -114,6 +110,7 @@ export class LinkedList {
     }
     if (current.next !== null) {
       current.next = current.next.next;
+      this.count -= 1;
     }
   }
   print() {

@@ -24,7 +24,7 @@ export const LoginUser = () => {
     });
 
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     const toast = document.querySelector("#toast-success");
     const toastmessage = document.querySelector("#toast-message");
@@ -42,13 +42,14 @@ export const LoginUser = () => {
         }, 1000))();
     } else {
       toastmessage.textContent = "incorrect credentials";
-      toast.classList.remove("hidden");
-      toast.classList.add("flex");
+      const errortoast = document.querySelector("#toast-danger");
+      errortoast.classList.remove("hidden");
+      errortoast.classList.add("flex");
       // toast.id = "toast-danger";
       await (async () =>
         setTimeout(() => {
-          toast.classList.add("hidden");
-          toast.classList.remove("flex");
+          errortoast.classList.add("hidden");
+          errortoast.classList.remove("flex");
           // toast.id = "toast-success";
         }, 2000))();
     }

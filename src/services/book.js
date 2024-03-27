@@ -52,6 +52,9 @@ export const BookFlight = () => {
 
     const data = await res.json();
     console.log(data);
+    if (data) {
+      localStorage.setItem("ticket", JSON.stringify(data));
+    }
   });
 };
 BookFlight();

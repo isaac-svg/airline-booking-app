@@ -4,61 +4,140 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Airline Ticket</title>
+    <script type="module" src="../services/ticket.js"></script>
     <link rel="stylesheet" href="ticket.css" />
+    <link rel="stylesheet" href="../output.css" />
   </head>
   <body>
-    <div class="ticket-container">
-      <header class="ticket-header">
-        <div class="airline-logo">
-          <img src="airline_logo.png" alt="Airline Logo" />
+    <div
+      class="max-w-sm mx-auto mt-20 bg-white rounded-md shadow-md overflow-hidden"
+    >
+      <div class="px-6 py-4 bg-gray-900 text-white">
+        <h1 class="text-lg font-bold">Credit Card</h1>
+      </div>
+      <div class="px-6 py-4">
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="passengername">
+            Name
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="passengername"
+            type="text"
+          />
         </div>
-        <div class="airline-details">
-          <h1>[Airline Name]</h1>
-          <p>[Airline Slogan]</p>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="email">
+            Email
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="email"
+            type="text"
+          />
         </div>
-      </header>
-      <div class="passenger-info">
-        <h2>Passenger Information</h2>
-        <ul>
-          <li>Name: [Passenger Name]</li>
-          <li>Confirmation Code: [Confirmation Code]</li>
-        </ul>
+        <div class="mb-4">
+          <label
+            class="block text-gray-700 font-bold mb-2"
+            for="destinationcountry"
+          >
+            Destination
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="destinationcountry"
+            type="text"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="departuretime">
+            Departure time
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="departuretime"
+            type="text"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="departuredate">
+            Departure date
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="departuredate"
+            type="text"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="flightcode">
+            Flight code
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="flightcode"
+            type="text"
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            class="block text-gray-700 font-bold mb-2"
+            for="
+          terminal"
+          >
+            terminal
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="terminal"
+            type="text"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="gate">
+            Gate
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="gate"
+            type="text"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="price">
+            price
+          </label>
+          <input
+            readonly
+            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="price"
+            type="text"
+          />
+        </div>
+
+        <div>
+          <button
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full"
+            id="print"
+          >
+            Get as pdf
+          </button>
+          <button
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full"
+            id="cancel"
+          >
+            cancel flight
+          </button>
+        </div>
       </div>
-      <div class="flight-details">
-        <h2>Flight Information</h2>
-        <ul>
-          <li>
-            Departure Airport: [Departure Airport Code] - [Departure Airport
-            Name]
-          </li>
-          <li>
-            Arrival Airport: [Arrival Airport Code] - [Arrival Airport Name]
-          </li>
-          <li>Departure Date: [Departure Date]</li>
-          <li>Departure Time: [Departure Time]</li>
-          <li>
-            Arrival Date: [Arrival Date] (if different from Departure Date)
-          </li>
-          <li>
-            Arrival Time: [Arrival Time] (if different from Departure Time)
-          </li>
-          <li>Flight Number: [Flight Number]</li>
-        </ul>
-      </div>
-      <div class="qr-code">
-        <h2>QR Code</h2>
-        <img src="qr_code.png" alt="QR Code" />
-      </div>
-      <footer class="ticket-footer">
-        <p>
-          Please present this ticket at the boarding gate along with a valid
-          photo ID.
-        </p>
-        <p>
-          For further information or assistance, please visit our website or
-          contact customer service.
-        </p>
-      </footer>
     </div>
   </body>
 </html>

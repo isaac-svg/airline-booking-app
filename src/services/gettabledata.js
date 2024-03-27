@@ -11,6 +11,3 @@ export const getTableData = async () => {
     console.log(error.message);
   }
 };
-
-getTableData();
-displayLinkedList();

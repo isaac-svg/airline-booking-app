@@ -41,29 +41,28 @@ export const CancelFlight = async () => {
         const username = `${firstname} ${lastname}`;
         const userData = { flightcode, username };
 
-        const response = await fetch("http://localhost:9000/ticket/delete", {
+        const response = await fetch("http://localhost:9000/ticket/cancel", {
+          method: "DELETE",
+          body: JSON.stringify({ ...userData }),
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
-          method: "DELETE",
-          credentials: "include",
-          body: JSON.stringify({ ...userData }),
         });
         const payload = await response.json();
+        console.log(payload);
         if (payload.success) {
           tableData.delete(username.trim());
           const toast = document.querySelector("#toast-success");
           const toastmessage = document.querySelector("#toast-message");
 
-          toastmessage.textContent = "Login successfull";
+          toastmessage.textContent = "Flight canceled";
           toast.classList.remove("hidden");
           toast.classList.add("flex");
           await (async () =>
             setTimeout(() => {
               toast.classList.add("hidden");
               toast.classList.remove("flex");
-              window.location.href =
-                "https://airticket-booking-app-orcin.vercel.app/src/pages/book.html";
             }, 1000))();
 
           displayLinkedList();
