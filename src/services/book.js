@@ -4,8 +4,7 @@ export const BookFlight = () => {
   isAuthorized()
     .then((data) => {
       if (!data) {
-        window.location.href =
-          "https://airline-booking-app.vercel.app/src/pages/login.html";
+        window.location.href = "http://localhost:5173/src/pages/login.html";
         return;
       }
     })
@@ -37,6 +36,8 @@ export const BookFlight = () => {
     const departureDate = onewaydatepicker.value.trim();
     const departureTime = timeEl.value.trim();
     const token = tokenfield.value.trim();
+    const toastsuccess = document.querySelector("#toast-success");
+    const toastdanger = document.querySelector("#toast-danger");
 
     const localPayload = localStorage.getItem("userPayload") ?? "{}";
     console.log(departureDate);
@@ -55,22 +56,29 @@ export const BookFlight = () => {
     };
     console.log(payload);
     try {
-      const res = await fetch(
-        "https://airline-booking-webserver.vercel.app/ticket/book",
-        {
-          method: "POST",
-          credentials: "include",
-          body: JSON.stringify({ ...payload }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await fetch("http://localhost:9000/ticket/book", {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({ ...payload }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       const data = await res.json();
       console.log(data);
       if (data) {
         localStorage.setItem("ticket", JSON.stringify(data));
+        toastsuccess.classList.remove("hidden");
+        toastsuccess.classList.add("flex");
+        console.log(" login href has hit here");
+        await (async () =>
+          setTimeout(() => {
+            toastsuccess.classList.add("hidden");
+            toastsuccess.classList.remove("flex");
+            window.location.href =
+              "http://localhost:5173/src/pages/ticket.html";
+          }, 1000))();
       }
     } catch (error) {
       console.log(error);

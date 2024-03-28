@@ -42,21 +42,18 @@ export const RegisterUser = () => {
       password: password,
       email,
     });
-    const res = await fetch(
-      "https://airline-booking-webserver.vercel.app/auth/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstName: firstname,
-          lastName: lastname,
-          password: password,
-          email,
-        }),
-      }
-    );
+    const res = await fetch("http://localhost:9000/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstname,
+        lastName: lastname,
+        password: password,
+        email,
+      }),
+    });
     const data = await res.json();
 
     console.log(data);
@@ -68,8 +65,7 @@ export const RegisterUser = () => {
         setTimeout(() => {
           toast.classList.add("hidden");
           toast.classList.remove("flex");
-          window.location.href =
-            "https://airline-booking-app.vercel.app/src/pages/login.html";
+          window.location.href = "http://localhost:5173/src/pages/login.html";
         }, 1000))();
     }
     // this data will be written to local storage

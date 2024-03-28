@@ -17,11 +17,6 @@
 
     <script src="https://unpkg.com/alpinejs" defer></script>
 
-    <!-- <script
-      type="text/javascript"
-      src="./node_modules/tw-elements/js/tw-elements.umd.min.js"
-    ></script> -->
-    <!-- tailwind compoments -->
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +35,7 @@
     />
     <!-- <script src="./src/services/gettabledata.js" defer></script> -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <title>Vite App</title>
+    <title>Aeronet™</title>
   </head>
   <body class="bg-slate-200">
     <div id="app">
@@ -51,14 +46,11 @@
       >
         <div class="flex w-full flex-wrap items-center justify-between px-3">
           <div>
-            <a class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0" href="#">
-              <img
-                class="me-2"
-                src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp"
-                style="height: 20px"
-                alt="TE Logo"
-                loading="lazy"
-              />
+            <a
+              class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0 text-xl text-blue-600 font-bold"
+              href="http://localhost:9000"
+            >
+              Aeronet™
             </a>
           </div>
 
@@ -112,6 +104,14 @@
                   href="/src/pages/book.html"
                   data-twe-nav-link-ref
                   >Book</a
+                >
+                <a
+                  class="hidden text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
+                  aria-current="page"
+                  href="/src/pages/table.html"
+                  data-twe-nav-link-ref
+                  id="showtablelink"
+                  >Table</a
                 >
               </li>
             </ul>

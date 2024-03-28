@@ -41,17 +41,14 @@ export const CancelFlight = async () => {
         const username = `${firstname} ${lastname}`;
         const userData = { flightcode, username };
 
-        const response = await fetch(
-          "https://airline-booking-webserver.vercel.app/ticket/cancel",
-          {
-            method: "DELETE",
-            body: JSON.stringify({ ...userData }),
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await fetch("http://localhost:9000/ticket/delete", {
+          method: "DELETE",
+          body: JSON.stringify({ ...userData }),
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const payload = await response.json();
         console.log(payload);
         if (payload.success) {

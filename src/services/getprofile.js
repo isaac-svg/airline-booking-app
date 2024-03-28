@@ -1,5 +1,5 @@
 export const isAuthorized = async (
-  endpoint = "https://airline-booking-webserver.vercel.app//auth/profile"
+  endpoint = "http://localhost:9000/auth/profile"
 ) => {
   try {
     const response = await fetch(endpoint, {
@@ -7,16 +7,14 @@ export const isAuthorized = async (
     });
     const data = await response.json();
     if (!data) {
-      window.location.href =
-        "https://airline-booking-app.vercel.app/src/pages/book.html";
+      window.location.href = "http://localhost:5173/src/pages/book.html";
       return false;
     }
     console.log(data, "data");
     return data.success;
   } catch (error) {
     console.log(error);
-    window.location.href =
-      "https://airline-booking-app.vercel.app/src/pages/book.html";
+    window.location.href = "http://localhost:5173/src/pages/book.html";
     return;
   }
 };

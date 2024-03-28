@@ -15,10 +15,12 @@ export const makeTicket = () => {
   const price = document.querySelector("#price");
   const ticketform = document.querySelector("#ticket-container");
   const destinationcountry = document.querySelector("#destinationcountry");
+  const toastsuccess = document.querySelector("#toast-success");
+  const toastdanger = document.querySelector("#toast-danger");
   const terminal = document.querySelector("#terminal");
   const gate = document.querySelector("#gate");
   const email = document.querySelector("#email");
-  const cancel = document.querySelector("#cancel");
+  const cancel = document.querySelector("#cancelticket");
   const print = document.querySelector("#print");
   username.value = userPayload.username;
   email.value = userPayload.email;
@@ -37,19 +39,38 @@ export const makeTicket = () => {
   });
   cancel.addEventListener("click", async (e) => {
     try {
-      const response = await fetch(
-        "https://airline-booking-webserver.vercel.app/ticket/delete",
-        {
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ ...ticket, ...userPayload }),
-        }
-      );
+      const response = await fetch("http://localhost:9000/ticket/cancel", {
+        method: "PATCH",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...ticket, ...userPayload }),
+      });
       const data = response.json();
+      console.log("data from ticket", data);
+      if (data) {
+        toastsuccess.classList.remove("hidden");
+        toastsuccess.classList.add("flex");
+        console.log(" login href has hit here");
+
+        setTimeout(() => {
+          toastsuccess.classList.add("hidden");
+          toastsuccess.classList.remove("flex");
+        }, 5000);
+      }
       console.log(data);
-    } catch (error) {}
+    } catch (error) {
+      toastdanger.classList.remove("hidden");
+      toastdanger.classList.add("flex");
+      console.log(" login href has hit here");
+      await (async () =>
+        setTimeout(() => {
+          toastdanger.classList.add("hidden");
+          toastdanger.classList.remove("flex");
+        }, 4000))();
+      console.log("I am hit");
+    }
   });
 };
 makeTicket();
